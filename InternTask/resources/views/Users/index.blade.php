@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -9,16 +9,29 @@
 
     @vite(['resources/js/app.js'])
 </head>
-  
+
 <body class="container">
+
+    {{-- logout btn --}}
+    <form method="get" action="{{route('auth.logout')}}">
+        @csrf
+        <button type="submit">Logout</button>
+    </form>
 
     <div>
         <h3>List of stores userd</h3>
+
+        <div class="nav">
+
+        <a href="{{route('users.create')}}">create new user!</a>
+        </div>
+
         @if (session('Message'))
             <div class="alert alert-success">
                 {{ session('Message') }}
             </div>
         @endif
+
         @if ($users->isNotEmpty())
             <ul>
                 @foreach ($users as $user)
@@ -28,7 +41,8 @@
                             <div style="">{{ $user->email }}</div>
                             <div style="">{{ $user->age }}</div>
                             <div class="btn">
-                                <a href="/userDetails/{{ $user->id }}">Show Complete Details</a>
+                                <a href="{{ route('users.show', $user->id) }}">Show more Details of {{ $user->name }}
+                                </a>
                             </div>
                         </div>
                     </li>

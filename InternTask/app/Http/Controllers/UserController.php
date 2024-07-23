@@ -4,22 +4,23 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function Home()
+    public function create()
     {
-        return view('User/userHome');
+        return view('Users.create');
     }
-    public function addUser(Request $request)
+    public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'mobile' => 'required|numeric|unique:users',
-            'password' => 'required|string|min:5',
+            'password' => 'required|string|min:4',
             'dob' => 'required|date',
             'age' => 'required|integer|min:10',
             'gender' => 'required|in:Male,Female,Other',
@@ -30,25 +31,25 @@ class UserController extends Controller
 
         User::create($validatedData);
 
-        return redirect()->route('userList')->with('Message', 'User registered successfully!');
+        return redirect()->route('users.create')->with('Message', 'User registered successfully!');
     }
 
     // List users
-    public function listUser()
+    public function index()
     {
         $users = User::all();
-        return view('User/User-Details', compact('users'));
+        return view('Users.index', compact('users'));
     }
 
     // Complete user details
-    public function CompleteDetails($id)
+    public function show($id)
     {
         $user = User::findOrFail($id);
-        return view('User/CompleteDetails', compact('user'));
+        return view('Users.show', compact('user'));
     }
 
 
-    public function updateUser(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
@@ -61,20 +62,21 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput(); // Redirect with errors
+            return back()->withErrors($validator)->withInput();
         }
 
         $user = User::findOrFail($id);
-        $user->update($request->all()); // Update user data
+        $user->update($request->all());
 
-        return redirect()->route('userDetails', $id)->with('Message', 'User details updated successfully!');
+        return redirect()->route('users.show', $id)->with('Message', 'User details updated successfully!');
     }
 
-    public function deleteUser($id)
+    public function destroy($id)
     {
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('userList')->with('Message', 'User deleted successfully!');
+        return redirect()->route('users.index')->with('Message', 'User deleted successfully!');
     }
+
 }

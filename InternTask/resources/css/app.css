@@ -1,0 +1,33 @@
+.filled-arrow {
+    display: none;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    right: -2rem;
+}
+
+.empty-arrow {
+    display: block;
+    width: fit-content;
+    position: absolute;
+    top: 0;
+    right: -2rem;
+}
+
+/* .empty-arrow:hover .filled-arrow {
+    display: block;
+}
+
+.empty-arrow :hover {
+    display: none;
+} */
+
+.edit-details {
+    position: relative;
+    width: fit-content;
+}
+
+
+.edit-details-content {
+    display: none;
+}

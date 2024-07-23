@@ -1,20 +1,27 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::redirect('/', '/login');
+
+Route::middleware('auth')->group(function () {
+    Route::prefix('users')->group(function () {
+
+        Route::get('/create', [UserController::class, 'create'])->name('users.create');
+        Route::post('/', [UserController::class, 'store'])->name('users.store');
+        Route::get('/', [UserController::class, 'index'])->name('users.index');
+        Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
+        Route::put('/{id}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
+});
 
 
-Route::get('/create-user', [UserController::class, 'Home'])->name('HomePage');
-Route::post('/addUser',[UserController::class, 'addUser']);
+Route::controller(LoginController::class)->group(function () {
 
-Route::get('/userDetails', [UserController::class, 'listUser'])->name('userList');
-Route::get('/userDetails/{id}', [UserController::class, 'CompleteDetails'])->name('userDetails');
-// Route::put('/userDetails/{id}', [UserController::class, 'updateUser'])->name('updateUser');
-// Route::delete('/user/delete/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
-
-Route::put('/updateUser/{id}', [UserController::class, 'updateUser'])->name('updateUser');
-Route::delete('/user/delete/{id}', [UserController::class, 'deleteUser'])->name('deleteUser');
+    Route::get('/login', 'Login')->name('auth.login');
+    Route::post('/login_process', 'login_process')->name('login.submit');
+    Route::get('/logout', 'logout')->name('auth.logout');
+});
