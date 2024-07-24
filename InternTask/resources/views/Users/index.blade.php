@@ -1,60 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.user')
+@section('title', 'Users')
+@section('main-content')
+    <section>
+        <form method="get" action="{{ route('auth.logout') }}">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <div>
+            <h3 class="alert alert-danger">List of stores userd</h3>
 
-    <title>UserHome page</title>
+            <div class="nav">
 
-    @vite(['resources/js/app.js'])
-</head>
-
-<body class="container">
-
-    {{-- logout btn --}}
-    <form method="get" action="{{route('auth.logout')}}">
-        @csrf
-        <button type="submit">Logout</button>
-    </form>
-
-    <div>
-        <h3>List of stores userd</h3>
-
-        <div class="nav">
-
-        <a href="{{route('users.create')}}">create new user!</a>
-        </div>
-
-        @if (session('Message'))
-            <div class="alert alert-success">
-                {{ session('Message') }}
+                <a href="{{ route('users.create') }}">create new user!</a>
             </div>
-        @endif
 
-        @if ($users->isNotEmpty())
-            <ul>
-                @foreach ($users as $user)
-                    <li>
-                        <div style="align-items: center; justify-content:space-around">
-                            <div style="">{{ $user->name }}</div>
-                            <div style="">{{ $user->email }}</div>
-                            <div style="">{{ $user->age }}</div>
-                            <div class="btn">
-                                <a href="{{ route('users.show', $user->id) }}">Show more Details of {{ $user->name }}
-                                </a>
+            @if (session('Message'))
+                <div class="alert alert-success">
+                    {{ session('Message') }}
+                </div>
+            @endif
+
+            @if ($users->isNotEmpty())
+                <ul>
+                    @foreach ($users as $user)
+                        <li>
+                            <div style="align-items: center; justify-content:space-around">
+                                <div style="">{{ $user->name }}</div>
+                                <div style="">{{ $user->email }}</div>
+                                <div style="">{{ $user->age }}</div>
+                                <div class="btn alert alert-primary">
+                                    <a href="{{ route('users.show', $user->id) }}">Show more Details of {{ $user->name }}
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                @endforeach
-            </ul>
-        @else
-            <div style="display: flex; justify-content: center; align-items: center;">
-                <p class="mb-0 ">No student data</p>
-            </div>
-        @endif
-    </div>
-
-</body>
-
-</html>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <p class="mb-0 ">No student data</p>
+                </div>
+            @endif
+        </div>
+    </section>
+@endsection

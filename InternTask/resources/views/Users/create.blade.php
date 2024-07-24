@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>UserHome page</title>
-
-    @vite(['resources/js/app.js'])
-
-
-</head>
-
-<body class="container">
-    <h1 class="text-primary">
-        hello
-    </h1>
-
-
+@extends('layouts.user')
+@section('title', 'Create user')
+@section('main-content')
 
     <section>
         {{-- logout btn --}}
-        <form method="get" action="{{route('auth.logout')}}">
+        <form method="get" action="{{ route('auth.logout') }}">
             @csrf
             <button type="submit">Logout</button>
         </form>
@@ -47,8 +30,8 @@
             </div>
 
 
-            <a href="{{route('users.index')}}">Go to user details</a>
-            <form action="{{route('users.store')}}" method="post">
+            <a href="{{ route('users.index') }}">Go to user details</a>
+            <form action="{{ route('users.store') }}" method="post">
                 <div class="row">
                     <label for="name">
                         <i class="ti ti-user"></i>
@@ -131,16 +114,4 @@
 
     </section>
 
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/js/tabler.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta17/dist/css/tabler.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-
-</body>
-
-
-</html>
+@endsection

@@ -2,9 +2,18 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/login');
+Route::redirect('/', '/login')->name('login');
+
+
+Route::controller(LoginController::class)->group(function () {
+
+    Route::get('/login', 'Login')->name('auth.login');
+    Route::post('/login_process', 'login_process')->name('login.submit');
+    Route::get('/logout', 'logout')->name('auth.logout');
+});
 
 Route::middleware('auth')->group(function () {
     Route::prefix('users')->group(function () {
@@ -16,12 +25,4 @@ Route::middleware('auth')->group(function () {
         Route::put('/{id}', [UserController::class, 'update'])->name('users.update');
         Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     });
-});
-
-
-Route::controller(LoginController::class)->group(function () {
-
-    Route::get('/login', 'Login')->name('auth.login');
-    Route::post('/login_process', 'login_process')->name('login.submit');
-    Route::get('/logout', 'logout')->name('auth.logout');
 });
