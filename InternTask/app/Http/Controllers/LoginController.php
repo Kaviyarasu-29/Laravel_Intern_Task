@@ -18,14 +18,16 @@ class LoginController extends Controller
 
     public function login_process(Request $request)
     {
-        // $request->validate([
-        //     'email' => 'required|email',
-        //     'password' => 'required',
-        // ]);
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]); 
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('users.index'));
+            $user = Auth::user();
+            // session()->put('user', $user);
+            return redirect()->intended(route('users.index')) -> with('success', $user -> name);
         }
 
         return back()->with('Message', 'Invalid credentials or Email/password incorrect!');

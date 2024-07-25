@@ -1,11 +1,19 @@
 @extends('layouts.user')
 @section('title', 'Users')
 @section('main-content')
-    <section>
+
+    <section> 
         <form method="get" action="{{ route('auth.logout') }}">
             @csrf
             <button type="submit">Logout</button>
         </form>
+        @if (session('success'))
+            <script>
+                var userName = '{{ session('success')}}';
+                alert('Welcome Chief ' + userName);
+                // alert({{ session('success')}});
+            </script>
+        @endif
 
         <div>
             <h3 class="alert alert-danger">List of stores userd</h3>
