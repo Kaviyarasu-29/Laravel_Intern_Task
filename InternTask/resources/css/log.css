@@ -57,8 +57,10 @@ html {
 
 .login-form {
     /* position: absolute;
-    top: 8rem;
-    right: 13rem; */
+    top: 8rem;*/
+    /* right: 13rem;  */
+    padding-top: 5rem !important;
+    padding-right: 1rem !important;
     width: 22rem;
     text-align: center;
     /* background-color: aqua !important; */
@@ -67,8 +69,9 @@ html {
 .left-image {
     z-index: -1;
     position: absolute;
-    top: 63px;
-    left: 63.3rem;
+    top: 55px;
+    /* left: 56.5rem; */
+    left: 63rem;
     overflow: hidden;
     height: 40rem;
 
@@ -84,7 +87,7 @@ html {
     background-color: transparent;
     width: fit-content;
     /* opacity: 0.8; */
-    width: 27rem;
+    width: 26rem;
     /* filter: grayscale(50%); */
 
 }
@@ -98,7 +101,7 @@ html {
 
 .white-line {
     top: 9rem;
-    height: 29rem;
+    height: 27rem;
     width: fit-content;
     padding: 0;
     margin: 0;

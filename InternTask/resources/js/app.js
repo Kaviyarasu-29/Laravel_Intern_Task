@@ -1,14 +1,18 @@
 import './bootstrap';
 import 'bootstrap';
 
+
 //css files
 import '../css/app.css';
-import '../css/CompleteDetails.css';
-
+import '../css/index.css';
+import '../css/create.css';
+import '../css/show.css';
 
 
 // js files
-import './Blade/CD.js';
+import './Blade/index.js';
+import './Blade/create.js';
+import './Blade/show.js';
 
 
 //scss files

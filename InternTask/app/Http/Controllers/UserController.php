@@ -25,9 +25,22 @@ class UserController extends Controller
             'age' => 'required|integer|min:10',
             'gender' => 'required|in:Male,Female,Other',
             'job' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
         ]);
 
+        if ($request->has('image')) {
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $path = 'uploads/profile';
+            $file->move(public_path($path), $filename);
+
+
+            $validatedData['image'] = $path . '/' . $filename;
+        }
+
         // $validatedData['password'] = Hash::make($validatedData['password']);
+
 
         User::create($validatedData);
 
@@ -78,5 +91,4 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('Message', 'User deleted successfully!');
     }
-
 }

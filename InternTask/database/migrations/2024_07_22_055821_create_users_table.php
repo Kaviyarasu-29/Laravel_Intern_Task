@@ -20,9 +20,12 @@ return new class extends Migration
             $table->date('dob');
             $table->integer('age');
             $table->enum('gender', ['Male', 'Female', 'Other']);
-            $table->string('job');
+            $table->string('job')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
+
+        
 
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
