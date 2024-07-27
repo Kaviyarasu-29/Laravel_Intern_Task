@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -32,11 +33,17 @@ class UserController extends Controller
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extention;
-            $path = 'uploads/profile';
-            $file->move(public_path($path), $filename);
+            // $path = 'uploads/profile';
 
 
-            $validatedData['image'] = $path . '/' . $filename;
+            $path = Storage::disk('profile')->putFileAs('', $file, $filename);
+            // dd($filename);
+            $validatedData['image'] = $path;
+
+            // $file->move(($path), $filename);
+            // $validatedData['image'] = $path . '/' . $filename;
+
+
         }
 
         // $validatedData['password'] = Hash::make($validatedData['password']);
