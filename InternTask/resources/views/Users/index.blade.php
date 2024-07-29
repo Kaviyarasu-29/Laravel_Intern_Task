@@ -65,8 +65,8 @@
                                 <div style="">{{ $user->email }}</div>
                                 <div style="">{{ $user->age }}</div>
                                 <div class="profile-image">
-                                    {{-- <img src="{{asset($user->image)}}" alt="{{$user->name}}"> --}}
-                                    <img src="{{ asset(Storage::disk($user->image)) }}" alt="">
+                                    <img src="{{asset($user->image)}}" alt="{{$user->name}}">
+                                    {{-- <img src="{{ asset(Storage::disk($user->image)) }}" alt=""> --}}
 
                                 </div>
                                 <div class="btn alert alert-primary">

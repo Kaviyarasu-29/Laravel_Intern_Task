@@ -5,7 +5,6 @@
 
 html {
     height: 100vh;
-    /* Set full viewport height */
     margin: 0;
 
 }
@@ -20,7 +19,9 @@ html {
 }
 
 .input-feild {
-    height: 60px;
+    height: 50px;
+    /* 15.6 */
+    /* height: 60px; */
     border-radius: 3rem !important;
 
     text-align: center;
@@ -59,9 +60,12 @@ html {
     /* position: absolute;
     top: 8rem;*/
     /* right: 13rem;  */
+
+    width: 20rem;
     padding-top: 5rem !important;
     padding-right: 1rem !important;
-    width: 22rem;
+    /* 15.6 */
+    /* width: 22rem; */
     text-align: center;
     /* background-color: aqua !important; */
 }
@@ -69,9 +73,13 @@ html {
 .left-image {
     z-index: -1;
     position: absolute;
-    top: 55px;
-    /* left: 56.5rem; */
-    left: 63rem;
+    top: 30px;
+    left: 51.5rem;
+    
+    
+    /* 15.6 */
+    /* top: 55px; */
+    /* left: 63rem; */
     overflow: hidden;
     height: 40rem;
 
@@ -87,7 +95,10 @@ html {
     background-color: transparent;
     width: fit-content;
     /* opacity: 0.8; */
-    width: 26rem;
+
+    width: 24rem;
+    /* 15.6 */
+    /* width: 26rem; */
     /* filter: grayscale(50%); */
 
 }
@@ -100,8 +111,11 @@ html {
 }
 
 .white-line {
-    top: 9rem;
-    height: 27rem;
+    top: 5rem;
+    height: 25.5rem;
+    /* 15.6 */
+    /* top: 9rem;
+    height: 27rem; */
     width: fit-content;
     padding: 0;
     margin: 0;
@@ -129,15 +143,10 @@ html {
 .logout-btn button:hover {
     background-color: #1a2730;
     color: white;
-    /* font-size: xx-large; */
-
-
-    /* color: white; */
     font-weight: 400;
     font-size: 30px;
     display: flex;
     justify-content: center;
-    /* align-content: flex-start; */
     align-items: center;
 
 }
@@ -148,7 +157,7 @@ html {
 }
 
 .right-side-content {
-    margin-top: 17rem !important;
+    margin-top: 14rem !important;
     width: 100%;
     padding-left: 1rem !important;
 }
@@ -159,17 +168,21 @@ html {
 
 
 .welcome-text {
+    font-size: 5rem;
     font-family: "Poppins", sans-serif;
     font-weight: 900;
-    font-size: 6rem;
+    /* 15.6 */
+    /* font-size: 6rem; */
     color: #243642;
 }
 .welcome-breif{
+    font-size: 15px;
     color: #243642;
     font-family: "Poppins", sans-serif;
     padding-left: 1rem !important;
     width: 70% !important;
-    font-size: 18px
+    /* 15.6 */
+    /* font-size: 18px */
 }
 
 

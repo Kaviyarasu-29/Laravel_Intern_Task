@@ -25,7 +25,10 @@ class UserController extends Controller
             'dob' => 'required|date',
             'age' => 'required|integer|min:10',
             'gender' => 'required|in:Male,Female,Other',
-            'job' => 'nullable|string|max:255',
+            // 'job' => 'nullable|string|max:255',
+            'address' => 'nullable|string|max:255',
+            'state' => 'nullable|string|max:255',
+            'country' => 'nullable|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
         ]);
 
@@ -36,14 +39,14 @@ class UserController extends Controller
             // $path = 'uploads/profile';
 
 
-            $path = Storage::disk('profile')->putFileAs('', $file, $filename);
+            // $path = Storage::disk('profile')->putFileAs('', $file, $filename);
             // dd($filename);
-            $validatedData['image'] = $path;
+            // $validatedData['image'] = $path;
 
-            // $file->move(($path), $filename);
-            // $validatedData['image'] = $path . '/' . $filename;
-
-
+            
+            $path = 'uploads/images';
+            $file->move(($path), $filename);
+            $validatedData['image'] = $path . '/' . $filename;
         }
 
         // $validatedData['password'] = Hash::make($validatedData['password']);
@@ -97,5 +100,10 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('users.index')->with('Message', 'User deleted successfully!');
+    }
+
+    public function profile()
+    {
+        return view('Users.profile');
     }
 }

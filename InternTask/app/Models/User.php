@@ -23,6 +23,9 @@ class User extends Authenticatable
         'gender',
         'job',
         'image',
+        'address',
+        'state',
+        'country',
 
         'remember_token',
 

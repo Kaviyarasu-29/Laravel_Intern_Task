@@ -20,8 +20,11 @@ return new class extends Migration
             $table->date('dob');
             $table->integer('age');
             $table->enum('gender', ['Male', 'Female', 'Other']);
-            $table->string('job')->nullable();
+            // $table->string('job')->nullable();
             $table->string('image')->nullable();
+            $table->string('address')->nullable();
+            $table->string('state')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
 
