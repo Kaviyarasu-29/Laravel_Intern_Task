@@ -1,7 +1,6 @@
 .profile-div {
     background-color: #d39c1bf7;
     height: 100vh;
-    /* background-image: ; */
 }
 
 .profile-image-id {
@@ -64,13 +63,18 @@
 .id-card {
 
     /* background-color: aquamarine; */
-    height: 7.5rem;
+    height: 7.5rem !important;
     width: 7.5rem !important;
     border-radius: 50%;
     top: 14rem;
     left: 10.75rem;
     color: white;
     text-transform: uppercase;
+	/* background-image: url('/public/images/userIcon.png'); */
+	background-color: white;
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .profile-page{
     margin-top: 2rem !important;

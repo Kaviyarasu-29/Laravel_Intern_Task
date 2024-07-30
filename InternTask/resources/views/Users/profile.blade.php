@@ -1,14 +1,29 @@
 @extends('layouts.user')
 @section('title', 'Create user')
 @section('main-content')
-    <section class="w-100 profile-div">
+    <section id="content" class="w-100 profile-div">
         <div class="row w-100 d-flex-justify-content-center align-itms-center">
             <div class="profile-image-id col-5 position-relative">
                 <img class="img-primary" src="{{ asset('images/id-1.png') }}" alt="">
                 <div class="id-card position-absolute text-center">
-                    <img src="{{ asset(auth()->user()->image) }}" alt="{{ asset(auth()->user()->name) }}">
+                    <img src="{{ auth()->user()->image ? asset(auth()->user()->image) : asset('images/userIcon.png') }}" alt="User Image" class="img-thumbnail" >
                     <p class="poppins-medium-italic id-name"> {{ auth()->user()->name }} </p>
                 </div>
+                {{-- @if (isset($user->image) && !empty($user->image))
+                    {
+
+                    <div class="id-card position-absolute text-center">
+                        <img src="{{ asset(auth()->user()->image) }}" alt="">
+                        <p class="poppins-medium-italic id-name"> {{ auth()->user()->name }} </p>
+                    </div>
+                    }
+                @else
+                    <div class="id-card position-absolute text-center">
+                        <img src="{{ asset(auth()->user()->image) }}" alt="">
+                        <p class="poppins-medium-italic id-name"> {{ auth()->user()->name }} </p>
+                    </div>
+                @endif --}}
+
             </div>
             <div class="profile-page col-7">
                 <h1 class="profile-heading poppins-medium-italic mt-3">
@@ -49,5 +64,7 @@
             </div>
         </div>
     </section>
+
+
 
 @endsection

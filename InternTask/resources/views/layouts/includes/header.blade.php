@@ -22,21 +22,21 @@
         </div>
         <div class="navbar-and-profile  d-flex align-items-center justify-content-end col-8">
 
-            <div class="navbar  d-flex align-items-center justify-content-end col-6">
+            <div class="navbar  d-flex align-items-center justify-content-end col-8 text-center">
                 <nav class="navbar navbar-expand-lg w-100">
                     <div class="collapse navbar-collapse  d-flex align-items-center justify-content-between w-100">
                         <ul class="navbar-nav mr-auto w-100  d-flex align-items-center justify-content-between">
-                            <li class="nav-item poppins-medium-italic px-2">
+                            <li class="nav-item poppins-medium-italic px-2 w-25">
                                 <a class="nav-link text-white" href="{{ route('auth.profile') }}">PROFILE</a>
                             </li>
-                            <li class="nav-item poppins-medium-italic px-2">
+                            <li class="nav-item poppins-medium-italic px-2 w-25">
                                 <a class="nav-link text-white" href="{{ route('users.create') }}">CREATE</a>
                             </li>
-                            <li class="nav-item poppins-medium-italic px-2">
+                            <li class="nav-item poppins-medium-italic px-2 w-25">
                                 <a class="nav-link text-white" href="{{ route('users.index') }}">DASHBOARD</a>
                             </li>
 
-                            <li class="nav-item poppins-medium-italic px-2">
+                            <li class="nav-item poppins-medium-italic px-2 w-25">
                                 <a class="nav-link text-white" href="{{ route('auth.logout') }}">LOGOUT!</a>
                             </li>
 
