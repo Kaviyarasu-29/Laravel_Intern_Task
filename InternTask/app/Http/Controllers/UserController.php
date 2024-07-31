@@ -19,6 +19,7 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
+            'nickname' => 'required|string|max:6',
             'email' => 'required|email|unique:users,email',
             'mobile' => 'required|numeric|unique:users',
             'password' => 'required|string|min:4',
@@ -29,7 +30,7 @@ class UserController extends Controller
             'address' => 'nullable|string|max:255',
             'state' => 'nullable|string|max:255',
             'country' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
         if ($request->has('image')) {
@@ -43,7 +44,7 @@ class UserController extends Controller
             // dd($filename);
             // $validatedData['image'] = $path;
 
-            
+
             $path = 'uploads/images';
             $file->move(($path), $filename);
             $validatedData['image'] = $path . '/' . $filename;
@@ -54,7 +55,7 @@ class UserController extends Controller
 
         User::create($validatedData);
 
-        return redirect()->route('users.create')->with('Message', 'User registered successfully!');
+        return redirect()->route('users.create')->with('Message', 'User created successfully!');
     }
 
     // List users
@@ -76,20 +77,60 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
+            'nickname' => 'required|string|max:6',
             'email' => 'required|email|unique:users,email,' . $id,
             'mobile' => 'required|numeric|unique:users,mobile,' . $id,
             'dob' => 'required|date',
             'age' => 'required|integer|min:10',
-            // 'gender' => 'required|in:Male,Female,Other',
-            'job' => 'nullable|string|max:255',
+
+            'gender' => 'required|in:Male,Female,Other',
+            'address' => 'nullable|string|max:255',
+            'state' => 'nullable|string|max:255',
+            'country' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
+        // check if val fails
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
 
+        // find user
         $user = User::findOrFail($id);
-        $user->update($request->all());
+
+        // old image path
+        $old_image = $user->image;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $path = 'uploads/images';
+            $file->move($path, $filename);
+            $newImagePath = $path . '/' . $filename;
+
+            // Update image path in the database
+            $user->image = $newImagePath;
+        }
+        // dd($user->image);
+        $user->update($request->except('image'));
+        if (isset($newImagePath)) {
+
+            // delete old image
+            if ($user->image && file_exists($user->image)) {
+                unlink($old_image);
+            }
+            else{
+                return with('Message', 'Old image not found!');
+            }
+
+            $user->save();
+        }
+
+
+
+
+        // $user->update($request->all());
 
         return redirect()->route('users.show', $id)->with('Message', 'User details updated successfully!');
     }

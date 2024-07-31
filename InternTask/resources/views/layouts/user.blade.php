@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body class="user-body">
     @include('layouts.includes.header')
     @yield('main-content')
     @include('layouts.includes.footer')

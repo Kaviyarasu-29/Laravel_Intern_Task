@@ -2,7 +2,7 @@
 @section('title', 'Create user')
 @section('main-content')
     <section class="w-100">
-        <div class="create-content m1-n1">
+        <div class="create-content create-content mx-5 my-4 ">
 
             {{-- logout btn --}}
             {{-- <form method="get" action="{{ route('auth.logout') }}">
@@ -12,7 +12,7 @@
             <div>
                 {{-- <h3 class="mb-5 ">Create User </h3> --}}
                 @if (session('Message'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success text-center py-2 my-2 poppins-regular text-uppercase">
                         {{ session('Message') }}
                     </div>
                 @endif
@@ -43,29 +43,38 @@
                             </h4>
                             <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
                                 <label for="name " class="form-label ps-4 col-2 ">
-                                    <i class="ti ti-user"></i>
                                     Name</label>
-                                <input type="text" class="form-control  col-9 w-75 " name="name" placeholder="Enter your Name">
+                                <input type="text" class="form-control  col-9 w-75 " name="name"
+                                    placeholder="Enter your full name">
                             </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="nickname" class="form-label ps-4 col-2 ">
+                                    Nickname</label>
+                                <input type="text" class="form-control  col-9 w-75 " name="nickname"
+                                    placeholder="Enter your nickname ">
+                            </div>
+ 
 
-
-                            <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between col-12 justify-content-between">
+                            <div
+                                class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between col-12 justify-content-between">
                                 <label for="dob" class="form-label ps-4 col-2">
-                                    <i class="ti ti-calendar-event"></i>
+
                                     DOB</label>
                                 <input type="date" class="form-control  col-9 w-75" name="dob">
                             </div>
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
                                 <label for="age" class="form-label ps-4 col-2">
-                                    <i class="ti ti-rating-16-plus"></i>
+
                                     Age</label>
-                                <input type="number" class="form-control  col-9 w-75" name="age" placeholder="Enter your age">
+                                <input type="number" class="form-control  col-9 w-75" name="age"
+                                    placeholder="Enter your age">
                             </div>
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
                                 <label for="gender" class="form-label ps-4 col-2">
-                                    <i class="ti ti-mars"></i>
+
                                     Gender</label>
-                                <select name="gender" class="form-select  col-9 w-75  " aria-label="Default select example">
+                                <select name="gender" class="form-select  col-9 w-75  "
+                                    aria-label="Default select example">
                                     <option selected disabled><i style="color:#d6d7d8 ">select</i></option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -78,10 +87,7 @@
                                 <input type="password" class="form-control  col-9 w-75" name="password"
                                     placeholder="Enter your password" autocomplete="off">
                             </div>
-                            <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
-                                <label for="formFile" class="form-label ps-4 col-2">Profile</label>
-                                <input class="form-control  col-9 w-75 custom-file-upload" type="file" name="image" id="formFile">
-                            </div>
+
                         </div>
 
                     </div>
@@ -89,44 +95,55 @@
                     <div class="col-6 ">
                         <div class="right-form col-11 poppins-regular-details">
                             <h4 class="create-heading poppins-medium  ps-4">
-                                CONTACT DETAILS
+                                OTHER DETAILS
                             </h4>
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
                                 <label for="email" class="form-label ps-4 col-2">
-                                    <i class="ti ti-mail"></i>
+
                                     Email</label>
-                                <input type="email" class="form-control  col-9 w-75" name="email" placeholder="Enter your Email">
+                                <input type="email" class="form-control  col-9 w-75" name="email"
+                                    placeholder="Enter your email">
                             </div>
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
                                 <label for="mobile" class="form-label ps-4 col-2">
-                                    <i class="ti ti-phone"></i>
+
                                     Mobile </label>
-                                <input type="mobile" class="form-control  col-9 w-75" name="mobile" placeholder="Enter your mobile">
+                                <input type="number" class="form-control  col-9 w-75" name="mobile"
+                                    placeholder="Enter your mobile number">
                             </div>
+
+
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
-                                <label for="Address" class="form-label ps-4 col-2">
-                                    <i class="ti ti-phone"></i>
+                                <label for="address" class="form-label ps-4 col-2">
                                     City </label>
-                                <input type="text" class="form-control  col-9 w-75" name="address" placeholder="Enter your Address">
+                                <input type="text" class="form-control  col-9 w-75" name="address"
+                                    placeholder="Enter your city">
                             </div>
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
-                                <label for="State" class="form-label ps-4 col-2">
-                                    <i class="ti ti-phone"></i>
+                                <label for="state" class="form-label ps-4 col-2">
+
                                     State </label>
-                                <input type="text" class="form-control  col-9 w-75" name="state" placeholder="Enter your state">
+                                <input type="text" class="form-control  col-9 w-75" name="state"
+                                    placeholder="Enter your state">
                             </div>
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
                                 <label for="Country" class="form-label ps-4 col-2">
-                                    <i class="ti ti-phone"></i>
+
                                     Country </label>
                                 <input type="text" class="form-control  col-9 w-75" name="country"
                                     placeholder="Enter your country">
+                            </div>
+                            <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
+                                <label for="formFile" class="form-label ps-4 col-2">Profile</label>
+                                <input class="form-control  col-9 w-75 custom-file-upload" type="file" name="image"
+                                    id="formFile">
                             </div>
 
 
 
                             <div class="mb-3 sub-btn w-100 d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary button-48 poppins-regular-details"> <span class="text"> CREATE </span> </button>
+                                <button type="submit" class="btn btn-primary create-sub-btn poppins-regular-details">
+                                    <span class="text"> CREATE </span> </button>
                             </div>
 
                         </div>

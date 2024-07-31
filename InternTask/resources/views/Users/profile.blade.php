@@ -6,8 +6,8 @@
             <div class="profile-image-id col-5 position-relative">
                 <img class="img-primary" src="{{ asset('images/id-1.png') }}" alt="">
                 <div class="id-card position-absolute text-center">
-                    <img src="{{ auth()->user()->image ? asset(auth()->user()->image) : asset('images/userIcon.png') }}" alt="User Image" class="img-thumbnail" >
-                    <p class="poppins-medium-italic id-name"> {{ auth()->user()->name }} </p>
+                    <img src="{{ auth()->user()->image ? asset(auth()->user()->image) : asset('images/userIcon.png') }}" alt="" class="img-thumbnail-secondary" >
+                    <p class="poppins-medium-italic id-name"> {{ auth()->user()->nickname }} </p>
                 </div>
                 {{-- @if (isset($user->image) && !empty($user->image))
                     {

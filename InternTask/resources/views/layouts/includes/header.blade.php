@@ -1,19 +1,5 @@
-{{-- <!-- Header -->
-<header class="bg-dark p-3 header" style="color: white">
-    <div class="logo">
-        <h2>FirstSite</h2>
-    </div>
-    <nav class="navbar">
-        <a href="{{route('users.create')}}">Create user</a>
-        <a href="{{route('users.index')}}">Dashboard</a>
-        <a href="{{route('auth.logout')}}">Logout</a>
-    </nav>
-    <div class="user-profile">
-        <img src="{{asset(auth()->user()->image)}}" alt="No profile image from {{auth()->user()->name}}">
-    </div>
-</header> --}}
 
-<header class="bg-dark text-white p-3 d-flex align-items-center justify-content-between row sticky-top">
+<header class="bg-dark text-white px-3 py-2 d-flex align-items-center justify-content-between row sticky-top">
     <div class="header d-flex align-items-center justify-content-between">
         <div class="logo col-4">
             <div class=" ">

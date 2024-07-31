@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="body">
+<body class="log-body">
 
     @yield('login-page-content')
 

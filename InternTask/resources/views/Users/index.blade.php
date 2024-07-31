@@ -1,8 +1,8 @@
-{{-- @extends('layouts.user')
-@section('title', 'Users')
+@extends('layouts.user')
+@section('title', 'User Management')
 @section('main-content')
 
-    <section>
+    <section class=" dashboard my-5">
         @if (session('success'))
             <script>
                 var userName = '{{ session('success') }}';
@@ -10,90 +10,12 @@
             </script>
         @endif
 
-        <script>
-            alert('Welcome back, ' + {{ auth()->user()->name }})
-        </script>
-        
-
-        <div>
-            
-            <h1> {{ auth()->user()->name }} </h1>
-            <h3 class="alert alert-danger ">List of stores userd</h3>
-
-            <div class="nav">
-
-                <a href="{{ route('users.create') }}">create new user!</a>
-            </div>
-
-            @if (session('Message'))
-                <div class="alert alert-success">
-                    {{ session('Message') }}
-                </div>
-            @endif
-
-            @if ($users->isNotEmpty())
-                <ul>
-                    @foreach ($users as $user)
-                        <li>
-                            <div style="align-items: center; justify-content:space-around">
-                                <div style="">{{ $user->name }}</div>
-                                <div style="">{{ $user->email }}</div>
-                                <div style="">{{ $user->age }}</div>
-
-                                
-                                @if (isset($user->image) && !empty($user->image))
-                                    {
-
-                                    <div class="profile-image">
-                                        <img src="{{ asset($user->image) }}">
-                                        
-
-                                    </div>
-                                    }
-                                @else
-                                    <div class="profile-image">
-                                        
-
-                                    </div>
-                                @endif
-                                <div class="btn alert alert-primary">
-                                    <a href="{{ route('users.show', $user->id) }}">Show more Details of
-                                        {{ $user->name }}
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            @else
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <p class="mb-0 ">No student data</p>
-                </div>
-            @endif
-        </div>
-    </section>
-@endsection --}}
-
-@extends('layouts.user')
-@section('title', 'User Management')
-@section('main-content')
- 
-    <section class=" dashboard my-5">
-        @if (session('success'))
-            <script>
-               var userName = '{{ session('success') }}';
-                alert('Welcome back ' + userName);
-            </script>
-        @endif
-
         <div class="text-center mb-5">
-            <h1 class="display-8 text-uppercase">Dashboard</h1>
+            {{-- <h1 class="display-8 text-uppercase">Dashboard</h1> --}}
             <p class="lead">Manage users and view their details</p>
         </div>
 
-        <div class="mb-4 text-right">
-            <a href="{{ route('users.create') }}" class="btn btn-primary">Create New User</a>
-        </div>
+
 
         @if (session('Message'))
             <div class="alert alert-success">
@@ -101,28 +23,40 @@
             </div>
         @endif
 
-        @if ($users->isNotEmpty())
-            <div class="card shadow-sm">
-                <div class="card-header bg-info text-white">
-                    <h3 class="card-title mb-0">User List</h3>
+        {{-- @if ($users->isEmpty())     --}}
+        <div class="card shadow-sm p-3">
+            <div class="card-header bg-info text-white d-flex justify-content-between align-items-center row">
+                <h3 class=" mt-3 mb-3 ps-3 pe-3 card-title mb-0 col-9 text-uppercase poppins-semibold">dashboard</h3>
+                <div class=" mt-3 mb-3  pe-3 text-center d-flex justify-content-center align-items-center col-2">
+                    <a href="{{ route('users.create') }}"
+                        class="btn btn-primary create-btn d-flex justify-content-center align-items-center poppins-regular"
+                        role="button">
+                        <span class="text">Create User</span><span>Click here!</span></a>
                 </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover mb-0">
+
+
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover mb-0">
+                        @if ($users->isNotEmpty())
                             <thead class="thead-light">
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Age</th>
-                                    <th>Actions</th>
+                                <tr class="poppins-regular text-uppercase">
+                                    <th class="text-center col-2">Profile</th>
+                                    <th class="text-center col-2">Name</th>
+                                    <th class="text-center col-3">Email</th>
+                                    <th class="text-center col-2">Age</th>
+                                    <th class="text-center col-2">Access Profile</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
-                                    <tr>
-                                        <td>
-                                            <img src="{{ $user->image ? asset($user->image) : asset('images/userIcon.png') }}"  class="img-thumbnail" style="width: 50px; height: 50px;">
+                                    <tr class="poppins-regular" style="vertical-align: middle;">
+                                        <td class="text-center table-data d-flex align-items-center justify-content-center">
+
+                                            <img src="{{ $user->image ? asset($user->image) : asset('images/userIcon.png') }}"
+                                                class="img-thumbnail">
+
                                         </td>
                                         {{-- @if (isset($user->image) && !empty($user->image))
                                             {
@@ -139,25 +73,35 @@
                                                 </div>
                                             </td>
                                         @endif --}}
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->age }}</td>
-                                        <td>
-                                            <a href="{{ route('users.show', $user->id) }}"
-                                                class="btn btn-sm btn-outline-info">View Details</a>
+                                        <td class="text-center table-data">
+                                            <p>{{ $user->name }}</p>
+                                        </td>
+                                        <td class="text-center table-data">{{ $user->email }}</td>
+                                        <td class="text-center table-data">{{ $user->age }}</td>
+                                        <td class="text-center table-data">
+                                            <a href="{{ route('users.show', $user->id) }}" class="btn-sm ">
+                                                <button class=" btn btn-outline-warning manage-btn moving-text-container">
+                                                    <span class="moving-text">Manage <span class="moving-text-hidden"> details  </span> </span>
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>
-                    </div>
+                        @else
+                            <div class="alert alert-warning text-center no-data-message py-4 ">
+                                <strong class="text-uppercase text-danger">No user data available</strong>
+                            </div>
+                        @endif
+                    </table>
                 </div>
             </div>
-        @else
+        </div>
+        {{-- @else
             <div class="alert alert-warning text-center">
                 <strong>No user data available</strong>
             </div>
-        @endif
+        @endif --}}
     </section>
 
 @endsection
