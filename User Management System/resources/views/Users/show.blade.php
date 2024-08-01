@@ -37,7 +37,7 @@
 
                     <h3 class="mt-0 mb-1 col-3 fw-bolder text-uppercase poppins-medium text-italic d-flex justify-content-center ">
                         {{ $user->nickname }} </h3>
-                </div>
+                </div> 
                 <div class="require-error-message col-6">
                     @if ($errors->any())
                         <div class="alert alert-danger text-center no-data-message py-3 list-unstyled col-12    ">
