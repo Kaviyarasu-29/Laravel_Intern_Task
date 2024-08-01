@@ -23,7 +23,7 @@
                             </li>
 
                             <li class="nav-item poppins-medium-italic px-2 w-25">
-                                <a class="nav-link text-white" href="{{ route('auth.logout') }}">LOGOUT!</a>
+                                <a class="nav-link text-white" href="{{ route('auth.logout') }} " onclick="return confirm('Are you sure you want to logout?');">LOGOUT!</a>
                             </li>
 
 
