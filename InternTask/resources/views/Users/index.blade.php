@@ -15,10 +15,8 @@
             <p class="lead">Manage users and view their details</p>
         </div>
 
-
-
         @if (session('Message'))
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center no-data-message py-3 ">
                 {{ session('Message') }}
             </div>
         @endif

@@ -59,10 +59,13 @@ class UserController extends Controller
     }
 
     // List users
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        return view('Users.index', compact('users'));
+        $sortField = $request->input('sort', 'name');
+        $sortDirection = $request->input('direction', 'asc');
+        $users = User::orderBy($sortField, $sortDirection)->get();
+        // $users = User::all();
+        return view('Users.index', compact('users', 'sortField', 'sortDirection'));
     }
 
     // Complete user details
@@ -118,10 +121,12 @@ class UserController extends Controller
 
             // delete old image
             if ($user->image && file_exists($user->image)) {
-                unlink($old_image);
-            }
-            else{
-                return with('Message', 'Old image not found!');
+                if (file_exists($old_image)) {
+                    unlink($old_image);
+                }
+                // else {
+                //     return  redirect()->route('users.show', $id)->with('Message', 'Old image not found!');
+                // }
             }
 
             $user->save();
@@ -138,6 +143,17 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+        $old_image = $user->image;
+        if ($old_image && file_exists($old_image)) {
+            unlink($old_image);
+            // echo 'image deleted';
+            // exit;
+        } 
+        // else {
+        //     // echo 'false';
+        //     // exit;
+        // }
+
         $user->delete();
 
         return redirect()->route('users.index')->with('Message', 'User deleted successfully!');

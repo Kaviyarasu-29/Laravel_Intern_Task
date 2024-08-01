@@ -57,7 +57,7 @@ html {
     top: 8rem;*/
     /* right: 13rem;  */
 
-    width: 20rem;
+    width: 19rem;
     padding-top: 5rem !important;
     padding-right: 1rem !important;
     /* 15.6 */
@@ -70,7 +70,8 @@ html {
     z-index: -1;
     position: absolute;
     top: 30px;
-    left: 51.5rem;
+    /* left: 51.5rem; */
+    left: 46.75rem;
     
     
     /* 15.6 */
@@ -84,18 +85,11 @@ html {
 }
 
 .left-image img {
-    /* transform: rotate(355deg); */
-    /* height: ; */
-    /* object-fit:contain; */
-    /* min-height: 25rem; */
     background-color: transparent;
     width: fit-content;
     /* opacity: 0.8; */
 
-    width: 24rem;
-    /* 15.6 */
-    /* width: 26rem; */
-    /* filter: grayscale(50%); */
+    width: 22rem;
 
 }
 
@@ -164,7 +158,7 @@ html {
 
 
 .welcome-text {
-    font-size: 5rem;
+    font-size: 4.5  rem !important;
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     /* 15.6 */

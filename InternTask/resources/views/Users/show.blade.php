@@ -2,7 +2,7 @@
 @section('title', 'Show User')
 @section('main-content')
     <section>
-        {{-- logout btn --}}
+        
         <form method="get" action="{{ route('auth.logout') }}">
             @csrf
             <button type="submit">Logout</button>
