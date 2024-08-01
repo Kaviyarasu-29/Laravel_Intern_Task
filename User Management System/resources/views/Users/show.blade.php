@@ -24,29 +24,30 @@
             </div>
         @endif
 
-        <div class="require-error-message">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
 
 
-        <div class="media row w-100 m-3 d-flex justify-content-center align-items-center">
+
+        <div class="media row w-100 d-flex justify-content-center align-items-center">
             <div class="media-body col-12 row  d-flex justify-content-center align-items-center">
                 <div class="col-6 row my-3 d-flex justify-content-center align-items-center">
                     <div class="show-image-parent col-6 ">
                         <img src="{{ $user->image ? asset($user->image) : asset('images/userIcon.png') }}" alt=""
                             class="show-image-child">
                     </div>
-                    <h3
-                        class="mt-0 mb-1 col-3 fw-bolder text-uppercase poppins-medium text-italic d-flex justify-content-center ">
+
+                    <h3 class="mt-0 mb-1 col-3 fw-bolder text-uppercase poppins-medium text-italic d-flex justify-content-center ">
                         {{ $user->nickname }} </h3>
+                </div>
+                <div class="require-error-message col-6">
+                    @if ($errors->any())
+                        <div class="alert alert-danger text-center no-data-message py-3 list-unstyled col-12    ">
+                            <ul class="list-unstyled col-12 ">
+                                @foreach ($errors->all() as $error)
+                                    <li class="col-12">{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
                 <div class="display-details col-10 row  d-flex justify-content-between">
                     <ul class="col-5 list-unstyled pippins-light d-flex flex-column align-items-center  ">

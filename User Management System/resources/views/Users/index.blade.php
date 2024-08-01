@@ -12,7 +12,7 @@
 
         <div class="text-center mb-5">
             {{-- <h1 class="display-8 text-uppercase">Dashboard</h1> --}}
-            <p class="lead">Manage users and view their details</p>
+            <p class="lead text-italic">Manage users and view their details</p>
         </div>
 
         @if (session('Message'))
