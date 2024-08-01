@@ -1,23 +1,25 @@
 @extends('layouts.user')
 @section('title', 'Show User')
 @section('main-content')
+
+
     <section>
-        
-        <form method="get" action="{{ route('auth.logout') }}">
+
+        {{-- <form method="get" action="{{ route('auth.logout') }}">
             @csrf
             <button type="submit">Logout</button>
-        </form>
+        </form> --}}
 
-        <div class="nav">
+        {{-- <div class="nav list-unstyled">
             <a href="{{ route('users.index') }}">Back to User List</a>
             <br>
             <a href="{{ route('users.create') }}">create new user!</a>
-        </div>
-        <h1 class="alert alert-primary">
+        </div> --}}
+        {{-- <h1 class="alert alert-primary">
             {{ $user->name }} - Details
-        </h1>
+        </h1> --}}
         @if (session('Message'))
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center no-data-message py-3">
                 {{ session('Message') }}
             </div>
         @endif
@@ -34,110 +36,193 @@
             @endif
         </div>
 
-        <div class="all-details">
-            <ul>
-                <h1>personal details</h1>
-                <li>Name: {{ $user->name }}</li>
-                <li>Nickname: {{ $user->nickname }}</li>
-                <li>DOB: {{ $user->dob }}</li>
-                <li>Age: {{ $user->age }}</li>
-                <li>Gender: {{ $user->gender }}</li>
-            </ul>
 
-            <ul>
-                <h1>Other details</h1>
+        <div class="media row w-100 m-3 d-flex justify-content-center align-items-center">
+            <div class="media-body col-12 row  d-flex justify-content-center align-items-center">
+                <div class="col-6 row my-3 d-flex justify-content-center align-items-center">
+                    <div class="show-image-parent col-6 ">
+                        <img src="{{ $user->image ? asset($user->image) : asset('images/userIcon.png') }}" alt=""
+                            class="show-image-child">
+                    </div>
+                    <h3
+                        class="mt-0 mb-1 col-3 fw-bolder text-uppercase poppins-medium text-italic d-flex justify-content-center ">
+                        {{ $user->nickname }} </h3>
+                </div>
+                <div class="display-details col-10 row  d-flex justify-content-between">
+                    <ul class="col-5 list-unstyled pippins-light d-flex flex-column align-items-center  ">
+                        <h1 class="secondary-heading poppins-regural text-uppercase my-2 py-3 col-12 ">personal details
+                        </h1>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">Name </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->name }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">Nickname </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->nickname }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">DOB </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->dob }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">Age </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->age }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">Gender </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->gender }}</p>
+                        </li>
 
-                <li>Email: {{ $user->email }}</li>
-                <li>Mobile: {{ $user->mobile }}</li>
-                <li>City: {{ $user->address ? $user->address : 'No data' }}</li>
-                <li>state: {{ $user->state ? $user->state : 'No data' }}</li>
-                <li>country: {{ $user->country ? $user->country : 'No data' }}</li>
-                <li>Profile: <img src="{{ $user->image ? asset($user->image) : asset('images/userIcon.png') }}"
-                        alt="" class="img-thumbnail"></li>
-            </ul>
+                    </ul>
+                    <ul class="col-5 list-unstyled pippins-light d-flex flex-column align-items-center ">
+                        <h1 class="secondary-heading poppins-regural text-uppercase my-2 py-3 col-12 ">contact details
+                        </h1>
+
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">Email </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->email }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">Mobile </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->mobile }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">City </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->address }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">State </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->state }}</p>
+                        </li>
+                        <li class="mb-3 row col-12 d-flex align-items-center justify-content-start">
+                            <p class="litst-title col-5 fs-5 poppins-medium">Country </p>
+                            <p class="litst-title col-7 fs-5 poppins-light"> : {{ $user->country }}</p>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="edit-details-container col-10 row my-5">
+
+                <h2 class="edit-details mb-4" id="edit-details">Edit Details
+                    <div class="filled-arrow " id="filled-arrow">
+                        <x-tabler-circle-arrow-down-filled />
+                    </div>
+                    <div class="empty-arrow" id="empty-arrow">
+                        <x-tabler-circle-arrow-down />
+                    </div>
+                </h2>
+                <form action="{{ route('users.update', $user->id) }}" method="POST" class="edit-details-content"
+                    id="edit-details-content" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="show-form-body row col-12 d-flex justify-content-between">
+                        <div class="show-form-primary row col-6 pe-5">
+
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="name " class="form-label poppins-medium   col-3 ">
+                                    Name</label>
+                                <input type="text" class="form-control1  col-9 " name="name"
+                                    value="{{ $user->name }}" placeholder="Enter your full name">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="nickname " class="form-label poppins-medium   col-3 ">
+                                    Nickname</label>
+                                <input type="text" class="form-control1  col-9 " name="nickname"
+                                    value="{{ $user->nickname }}" placeholder="Enter your nickname">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="dob " class="form-label poppins-medium   col-3 ">
+                                    DOB</label>
+                                <input type="date" class="form-control1  col-9 " name="dob"
+                                    value="{{ $user->dob }}" placeholder="Enter your dob">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="age " class="form-label poppins-medium   col-3 ">
+                                    Age</label>
+                                <input type="number" class="form-control1  col-9 " name="age"
+                                    value="{{ $user->age }}" placeholder="Enter your age">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="gender " class="form-label poppins-medium   col-3 ">
+                                    Gender</label>
+                                <select id="gender" name="gender" class="form-select col-9 ">
+                                    <option value="Male" {{ $user->gender === 'Male' ? 'selected' : '' }}>Male</option>
+                                    <option value="Female" {{ $user->gender === 'Female' ? 'selected' : '' }}>Female
+                                    </option>
+                                    <option value="Other" {{ $user->gender === 'Other' ? 'selected' : '' }}>Other
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        {{-- <h2 class="form-heading">
+                        Personal Details
+                    </h2> --}}
+
+
+                        <div class="show-form-primary col-6 ps-5 row d-flex justify-content-between">
+                            {{-- <h2 class="form-heading">
+                            Other details
+                        </h2> --}}
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="email " class="form-label poppins-medium   col-3 ">
+                                    Email</label>
+                                <input type="text" class="form-control1  col-9 " name="email"
+                                    value="{{ $user->email }}" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="mobile " class="form-label poppins-medium   col-3 ">
+                                    Mobile</label>
+                                <input type="number" class="form-control1  col-9 " name="mobile"
+                                    value="{{ $user->mobile }}" placeholder="Enter your mobile">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="address " class="form-label poppins-medium   col-3 ">
+                                    City</label>
+                                <input type="text" class="form-control1  col-9 " name="address"
+                                    value="{{ $user->address }}" placeholder="Enter your city">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="state " class="form-label poppins-medium   col-3 ">
+                                    State</label>
+                                <input type="text" class="form-control1  col-9 " name="state"
+                                    value="{{ $user->state }}" placeholder="Enter your state">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="country " class="form-label poppins-medium   col-3 ">
+                                    Country</label>
+                                <input type="text" class="form-control1  col-9 " name="country"
+                                    value="{{ $user->country }}" placeholder="Enter your country">
+                            </div>
+                            <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
+                                <label for="image " class="form-label poppins-medium   col-3 ">
+                                    Country</label>
+                                <input type="file" class="form-control1  col-9 " name="country">
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+
+                    <button type="submit" name="updatebtn" class="btn btn-primary">Update Details</button>
+                </form>
+            </div>
         </div>
-
-        <h2 class="edit-details" id="edit-details">Edit Details
-            <div class="filled-arrow" id="filled-arrow" onmouseover="filled_arrow_over(this)"
-                onmouseout="filled_arrow_out(this)">
-                <x-tabler-circle-arrow-down-filled />
-            </div>
-            <div class="empty-arrow" id="empty-arrow" onmouseover="empty_arrow_over(this)"
-                onmouseout="empty_arrow_out(this)">
-                <x-tabler-circle-arrow-down />
-            </div>
-        </h2>
-        <form action="{{ route('users.update', $user->id) }}" method="POST" class="edit-details-content"
-            id="edit-details-content" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div class="pesonal">
-
-                <h2 class="form-heading">
-                    Personal Details
-                </h2>
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" value="{{ $user->name }}">
-                </div>
-                <div class="form-group">
-                    <label for="nick name">Nickname:</label>
-                    <input type="text" name="nickname" value="{{ $user->nickname }}">
-                </div>
-                <div>
-                    <label for="dob">Date of Birth:</label>
-                    <input type="date" name="dob" value="{{ $user->dob }}">
-                </div>
-                <div>
-                    <label for="age">Age:</label>
-                    <input type="number" name="age" value="{{ $user->age }}">
-                </div>
-                <div class="mb-3 col-12">
-                    <label for="gender" class="form-label">Gender</label>
-                    <select id="gender" name="gender" class="form-select">
-                        <option value="Male" {{ $user->gender === 'Male' ? 'selected' : '' }}>Male</option>
-                        <option value="Female" {{ $user->gender === 'Female' ? 'selected' : '' }}>Female</option>
-                        <option value="Other" {{ $user->gender === 'Other' ? 'selected' : '' }}>Other</option>
-                    </select>
-                </div>
-
-
-            </div>
-
-            <div class="other">
-                <h2 class="form-heading">
-                    Other details
-                </h2>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="email" value="{{ $user->email }}">
-                </div>
-                <div>
-                    <label for="mobile">Mobile: </label>
-                    <input type="number" name="mobile" value="{{ $user->mobile }}">
-                </div>
-                <div>
-                    <label for="address">City: </label>
-                    <input type="text" name="address" value="{{ $user->address }}">
-                </div>
-                <div>
-                    <label for="state">state: </label>
-                    <input type="state" name="state" value="{{ $user->state }}">
-                </div>
-                <div>
-                    <label for="country">country: </label>
-                    <input type="country" name="country" value="{{ $user->country }}">
-                </div>
-                <div>
-                    <label for="image">profile </label>
-                    <input type="file" name="image" id="">
-                </div>
-            </div>
-
-
-
-            <button type="submit" name="updatebtn" class="btn btn-primary">Update Details</button>
-        </form>
 
         <form action="{{ route('users.destroy', $user->id) }}" method="POST">
             @csrf

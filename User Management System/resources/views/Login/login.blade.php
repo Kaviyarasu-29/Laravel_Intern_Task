@@ -3,7 +3,7 @@
 
 @section('login-page-content')
     <section class="section position-relative h-100">
-        <div class="row h-100">
+        <div class="parent-div row h-100">
             <div class="white-line position-absolute w-100">
 
             </div>

@@ -1,25 +1,22 @@
-
-html {
-    height: 100vh;
+/* Base styles (default for all screen sizes) */
+html,
+body {
     margin: 0;
-
+    overflow: hidden;
 }
 
+
+
 .log-body {
-    /* background-color: rgb(136, 91, 199); */
     background-color: #243642;
     width: 100%;
-    height: 100vh;
+    height: 500px !important;
     overflow: hidden;
-    /* max-height: 100vh; */
 }
 
 .input-feild {
     height: 50px;
-    /* 15.6 */
-    /* height: 60px; */
     border-radius: 3rem !important;
-
     text-align: center;
     color: #243642;
     font-weight: 400;
@@ -53,46 +50,26 @@ html {
 }
 
 .login-form {
-    /* position: absolute;
-    top: 8rem;*/
-    /* right: 13rem;  */
-
     width: 19rem;
     padding-top: 5rem !important;
     padding-right: 1rem !important;
-    /* 15.6 */
-    /* width: 22rem; */
     text-align: center;
-    /* background-color: aqua !important; */
 }
 
 .left-image {
     z-index: -1;
     position: absolute;
     top: 30px;
-    /* left: 51.5rem; */
     left: 46.75rem;
-    
-    
-    /* 15.6 */
-    /* top: 55px; */
-    /* left: 63rem; */
     overflow: hidden;
     height: 40rem;
-
-    /* object-fit: cover; */
-    /* height: fit-content; */
 }
 
 .left-image img {
     background-color: transparent;
     width: fit-content;
-    /* opacity: 0.8; */
-
     width: 22rem;
-
 }
-
 
 .poppins-regular {
     font-family: "Poppins", sans-serif;
@@ -103,31 +80,24 @@ html {
 .white-line {
     top: 5rem;
     height: 25.5rem;
-    /* 15.6 */
-    /* top: 9rem;
-    height: 27rem; */
     width: fit-content;
     padding: 0;
     margin: 0;
     background-color: white;
     z-index: -2;
-
 }
 
 .logout-btn button {
-
     text-align: center;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
     font-style: normal;
     background-color: #243642;
     color: white;
-    /* font-size: xx-large; */
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .logout-btn button:hover {
@@ -138,9 +108,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
-
 
 .right-side-page {
     width: 60% !important;
@@ -156,176 +124,35 @@ html {
     width: 40% !important;
 }
 
-
 .welcome-text {
-    font-size: 4.5  rem !important;
+    font-size: 4.5rem !important;
     font-family: "Poppins", sans-serif;
     font-weight: 900;
-    /* 15.6 */
-    /* font-size: 6rem; */
     color: #243642;
 }
-.welcome-breif{
+
+.welcome-breif {
     font-size: 15px;
     color: #243642;
     font-family: "Poppins", sans-serif;
     padding-left: 1rem !important;
     width: 70% !important;
-    /* 15.6 */
-    /* font-size: 18px */
 }
+    
 
 
+/* Mobile (up to 767px) */
+/* @media (max-width: 430px) {
+    
+    .parent-dev{
+        display: flex !important;
+        justify-content: center;
+        flex-direction:column !important;
+    }
+    .welcome-text {
+        font-size: 2rem !important;
+    }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-.poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 800;
-    font-style: normal;
-  }
-  .josefin-sans-welcome {
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-size:35px;
-    font-weight: 900;
-    font-style: normal;
-  }
-  .josefin-sans-welcome-content {
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-size:20px;
-    font-weight: 400;
-    font-style: normal;
-  }
-.inter-font {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: normal;
-    font-variation-settings:
-      "slnt" 0;
-  }
-
-
-
-
-
-.login-page {
-    background-color: rgb(138, 180, 183);
-    width: 100%;
-    height: 100vh !important;
-
-    padding: 0;
-    display: flex;
-    justify-content: end;
-}
-
-
-
-
-
-.left-side {
-    position: relative;
-
-}
-.left-image{
-    height: fit-content;
-
-    background-color: red;
-    overflow: hidden;
-    object-fit: cover;
-}
-.left-image img{
-    position: absolute;
-    width: 35rem;
-    top: 14rem;
-    left: 8rem;
-    transform: rotate(355deg);
-    height: auto ;
-    object-fit: cover;
-    background-color: transparent;
-}
-
-
-
-
-
-
-
-.right-side {
-    display: flex;
-    justify-content: flex-end;
-    padding: 0;
-
-}
-
-.right-side .right-child-col{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-
-    background-color: white;
-    border-top-left-radius: 3rem;
-    border-bottom-left-radius: 3rem;
-}
-
-
-.left-side-content{
-    position: absolute;
-    top: 3rem;
-    left: 2rem;
-    color: white;
-}
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .body { */
-/* background: aquamarine; */
-/* color: blue; */
-/* background-image: url('/public/images/login/bg-light-blue.jpg'); */
-/* background-image: url('https://as1.ftcdn.net/v2/jpg/03/28/72/96/1000_F_328729628_fBBdOJRIHiXykojm52hGmMdGSSmYVoF0.jpg'); */
-/* background-position: center; */
-/* background-repeat: no-repeat; */
-/* background-size: cover; */
-/* object-fit: cover; */
-/* width: 100vh; */
-/* height: 100vh; */
-/* } */
+} */

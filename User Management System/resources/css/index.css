@@ -145,14 +145,14 @@
 
 .card-header {
 
-    animation: card-header 2s ease 0s 1 normal forwards;
+    animation: card-header 1s ease 0s 1 normal forwards;
 }
 
 .card-body {
 
     opacity: 0;
     /* Initially hide the content */
-    animation: card-body 2s ease 500ms 1 normal forwards;
+    animation: card-body 1s ease 500ms 1 normal forwards;
 
 }
 
@@ -217,11 +217,7 @@
     color: #fff !important;
 }
 
-@media (min-width: 768px) {
-    .manage-btn {
-        padding: 1rem 2rem;
-    }
-}
+
 
 .moving-text-container {
     overflow: hidden;
@@ -262,7 +258,11 @@
     }
 
 }
-
+@media (min-width: 768px) {
+    .manage-btn {
+        padding: 1rem 2rem;
+    }
+}
 
 
 /* .moving-text-container {

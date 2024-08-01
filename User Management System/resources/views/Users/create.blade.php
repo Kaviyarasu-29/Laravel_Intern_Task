@@ -37,8 +37,8 @@
                 <form action="{{ route('users.store') }}" method="post"
                     class="w-100 row d-flex justify-content-between create-form" enctype="multipart/form-data">
                     <div class="col-6 poppins-regular-details">
-                        <div class="left-form col-11">
-                            <h4 class="create-heading  poppins-medium ps-4 ">
+                        <div class="left-form col-11 row">
+                            <h4 class="create-heading text-uppercase  poppins-medium ps-4 ">
                                 PERSONAL DETAILS
                             </h4>
                             <div class="mb-3 row col-12 d-flex align-items-center justify-content-between">
@@ -94,8 +94,8 @@
 
                     <div class="col-6 ">
                         <div class="right-form col-11 poppins-regular-details">
-                            <h4 class="create-heading poppins-medium  ps-4">
-                                OTHER DETAILS
+                            <h4 class="create-heading text-uppercase  poppins-medium  ps-4">
+                                Contact DETAILS
                             </h4>
                             <div class="mb-3 gap-3 d-flex align-items-center  col-12 justify-content-between">
                                 <label for="email" class="form-label ps-4 col-2">

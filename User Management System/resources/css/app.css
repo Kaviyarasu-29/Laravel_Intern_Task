@@ -62,7 +62,7 @@ body {
 
 
 .edit-details-content {
-    display: none;
+    /* display: none; */
 }
 
 .header-logo {
@@ -76,6 +76,10 @@ body {
 
 
 /* google font - poppins */
+
+.text-italic{
+    font-style: italic !important;
+}
 
 .poppins-thin {
     font-family: "Poppins", sans-serif;
