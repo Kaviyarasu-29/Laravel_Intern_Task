@@ -79,6 +79,16 @@ input[type="file"] {
 
 }
 
+.show-form-primary .modal-footer button {
+    width: 8rem;
+    height: 2.5rem;
+
+}
+
+.show-btns button {
+    width: 8rem;
+    height: 2rem;
+}
 
 
 

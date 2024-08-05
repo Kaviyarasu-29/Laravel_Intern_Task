@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
@@ -78,6 +79,7 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        // dd($request->all(), $id);
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'nickname' => 'required|string|max:6',
@@ -136,8 +138,9 @@ class UserController extends Controller
 
 
         // $user->update($request->all());
-
-        return redirect()->route('users.show', $id)->with('Message', 'User details updated successfully!');
+       
+        return redirect()->back()->with('Message', 'User details updated successfully!');
+        // return redirect()->route('users.show', $id)->with('Message', 'User details updated successfully!');
     }
 
     public function destroy($id)
@@ -148,7 +151,7 @@ class UserController extends Controller
             unlink($old_image);
             // echo 'image deleted';
             // exit;
-        } 
+        }
         // else {
         //     // echo 'false';
         //     // exit;

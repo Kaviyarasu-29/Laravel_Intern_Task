@@ -258,11 +258,60 @@
     }
 
 }
+
 @media (min-width: 768px) {
     .manage-btn {
         padding: 1rem 2rem;
     }
 }
+
+
+.index-form-primary label {
+    font-size: 1rem;
+}
+
+.index-form-primary input {
+    height: 2rem;
+    font-size: 0.9rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    /* border-color: blue; */
+}
+
+input[type="file"] {
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 !important;
+    margin: 0;
+    display: block;
+    cursor: pointer;
+}
+
+.index-form-primary select {
+    height: 2rem;
+    line-height: 2rem;
+    padding-left: 0.5rem !important;
+    display: block;
+    cursor: pointer;
+
+}
+
+.index-form-primary .modal-footer button {
+    width: 8rem;
+    height: 2.5rem;
+
+}
+
+.delete-user button {
+    width: 8rem;
+    height: 2rem;
+}
+
+
 
 
 /* .moving-text-container {

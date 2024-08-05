@@ -156,27 +156,7 @@
 
         </div>
 
-        {{-- Existing student display logic --}}
-        {{-- <div>
-          <h3>List of stores userd</h3>
-          @if ($students->isNotEmpty())
-            <ul>
-              @foreach ($students as $student)
-                <li>
-                  <div style="align-items: center; justify-content:space-around">
-                    <div style="text-align: center">{{ $student->name }}</div>
-                    <div style="text-align: center">{{ $student->email }}</div>
-                    <div style="text-align: center">{{ $student->joined_date }}</div>
-                  </div>
-                </li>
-              @endforeach
-            </ul>
-          @else
-            <div style="display: flex; justify-content: center; align-items: center;">
-              <p class="mb-0 ">No student data</p>
-            </div>
-          @endif
-        </div> --}}
+        
 
     </section>
 

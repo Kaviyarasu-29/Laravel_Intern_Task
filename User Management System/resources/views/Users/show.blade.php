@@ -233,9 +233,9 @@
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable modal-xl">
                     <div class="modal-content p-3">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Edit details</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <div class="modal-header mb-5">
+                            <h5 class="modal-title me-3 mb-3" id="staticBackdropLabel">EDIT DETAILS</h5>
+                            <button type="button" class="btn-close mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body w-100 row col-12">
                             <div class="edit-details-container col-12 row my-5">
@@ -358,11 +358,11 @@
 
 
                                     {{-- <button type="submit" name="updatebtn" class="btn btn-primary">Update Details</button> --}}
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
+                                    <div class="modal-footer show-btns">
+                                        <button type="button" class="btn btn-secondary mx-1 my-2"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" name="updatebtn" class="btn btn-primary">Update
-                                            Details</button>
+                                        <button type="submit" name="updatebtn" class="btn btn-primary mx-1 my-2">Update
+                                            </button>
                                     </div>
                                 </form>
                             </div>
@@ -376,9 +376,9 @@
         </div>
 
     </section>
-    <div class="w-100 col-12 d-flex justify-content-center align-items-center">
-        <div class="col-10">
-            <button type="button" class="btn btn-primary col-2" data-bs-toggle="modal"
+    <div class="show-btns w-100 col-12 d-flex justify-content-center align-items-center">
+        <div class="col-10 d-flex justify-content-end align-items-center">
+            <button type="button" class="btn btn-primary col-2 my-2 mx-2" data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop">
                 Edit Details
             </button>
@@ -386,7 +386,7 @@
             <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger"
+                <button type="submit" class="btn btn-danger my-2 mx-2"
                     onclick="return confirm('Are you sure you want to delete this user?');">Delete User</button>
             </form>
         </div>
